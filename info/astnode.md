@@ -4,8 +4,9 @@ AST(抽象構文木)の操作を行う際の各構文のノード(単位)とし�
 私が研究している「自動プログラム修正」の分野では、プログラム修正対象として「式」と「文」の二つを扱っているので、それぞれのノードの説明を行う. 
 
 ### Statement(org.eclipse.jdt.core.dom) - 文
-StatementはASTNodeを継承したクラスで、ASTにおける文の構文を定義している. 
+StatementはASTNodeを継承したクラスで、ASTにおける文の構文を定義している. (詳細は[こちら]([Class Statement (ibm.com)](https://www.ibm.com/support/knowledgecenter/SS8PJ7_9.5.0/org.eclipse.jdt.doc.isv/reference/api/org/eclipse/jdt/core/dom/Statement.html)))
 Statementには以下のものがある. 
+
 - AssertStatement.java
 - Block.java
 - BreakStatement.java
@@ -41,28 +42,28 @@ Statementには以下のものがある.
 
 | Statement                    | 構文定義                                                     |
 | ---------------------------- | ------------------------------------------------------------ |
-| AssertStatement              | assert Expression [ : Expression ] ;                         |
-| Block                        | { {statement} }                                              |
-| BreakStatement               | break [ Identifier ] ;                                       |
-| ConstructorInvocation        | [ < Type { , Type } > ]   <br />     this ( [ Expression { , Expression } ] ) ; |
-| ContinueStatement            | continue [ Identifier ] ;                                    |
-| DoStatement                  |                                                              |
-| EnhancedForStatement         |                                                              |
-| ExpressionStatement          |                                                              |
-| ForStatement                 |                                                              |
-| ForStatement                 |                                                              |
-| IfStatement                  |                                                              |
-| LabeledStatement             |                                                              |
-| ReturnStatement              |                                                              |
-| SuperConstructorInvocation   |                                                              |
-| SwitchCase                   |                                                              |
-| SwitchStatement              |                                                              |
-| SynchronizedStatement        |                                                              |
-| ThrowStatement               |                                                              |
-| TryStatement                 |                                                              |
-| TypeDeclarationStatement     |                                                              |
-| VariableDeclarationStatement |                                                              |
-| WhileStatement               |                                                              |
+| AssertStatement              | assert **Expression** [ : **Expression** ] ;                 |
+| Block                        | { {**Statement**} }                                          |
+| BreakStatement               | break [ **Identifier** ] ;                                   |
+| ConstructorInvocation        | [ < **Type** { , **Type** } > ]   <br />     this ( [ **Expression** { , **Expression** } ] ) ; |
+| ContinueStatement            | continue [ **Identifier** ] ;                                |
+| DoStatement                  | do **Statement** while ( **Expression** ) ;                  |
+| EmptyStatement               | ;                                                            |
+| EnhancedForStatement         | for ( FormalParameter : **Expression** )   <br />             **Statement** |
+| ExpressionStatement          | **StatementExpression** ;                                    |
+| ForStatement                 | for (<br />                         [ **ForInit** ];<br />                        [ **Expression** ] ;<br />                         [ **ForUpdate** ] )<br />                         **Statement**  <br />**ForInit**:<br />                 **Expression** { , **Expression** }  <br />**ForUpdate**:<br />                 **Expression** { , **Expression** } |
+| IfStatement                  | if ( **Expression** ) **Statement** [ else **Statement**]    |
+| LabeledStatement             | Identifier : **Statement**                                   |
+| ReturnStatement              | return [ **Expression** ] ;                                  |
+| SuperConstructorInvocation   | [ **Expression** . ]<br />          [ < **Type** { , **Type** } > ]<br />          super ( [ **Expression** { , **Expression** } ] ) ; |
+| SwitchCase                   | case **Expression**  : <br />                default :       |
+| SwitchStatement              | switch ( **Expression** )<br />                         { { **SwitchCase** \| **Statement** } } } |
+| SynchronizedStatement        | synchronized ( **Expression** ) **Block**                    |
+| ThrowStatement               | throw **Expression** ;                                       |
+| TryStatement                 | try [ ( **Resources** ) ]<br />          **Block**<br />          [ { **CatchClause** } ]<br />          [ finally **Block** ] |
+| TypeDeclarationStatement     | **TypeDeclaration**<br />**EnumDeclaration**                 |
+| VariableDeclarationStatement | { **ExtendedModifier** } **Type** **VariableDeclarationFragment**<br />         { , **VariableDeclarationFragment** } ; |
+| WhileStatement               | while ( **Expression** ) **Statement**                       |
 
 ##### 各種呼び出せるメソッド一覧
 
