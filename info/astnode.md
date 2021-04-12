@@ -68,6 +68,7 @@ Statementには以下のものがある.
 ##### 各種呼び出せるメソッド一覧
 
 - AssertStatement.java
+
 | メソッド                               | 戻り値        | 機能                                                         |
 | -------------------------------------- | :------------ | :----------------------------------------------------------- |
 | `getExpression()`                      | `Expression`  | Returns the first expression of this assert statement.       |
@@ -77,6 +78,7 @@ Statementには以下のものがある.
 | `setMessage(Expression expression)`    | `void`        | Sets or clears the message expression of this assert statement. |
 
 - Block.java
+
 | メソッド                          | 戻り値        | 機能                                                         |
 | --------------------------------- | :------------ | :----------------------------------------------------------- |
 | propertyDescriptors(int apiLevel) | `static List` | Returns a list of structural property descriptors for this node type. |
@@ -169,3 +171,13 @@ false, true, null以外のJavaソースコード内に存在する変数など�
 | `propertyDescriptors(int apiLevel)` | `static List` | Returns a list of structural property descriptors for this node type. |
 | `setIdentifier(String identifier)`  | `void`        | Sets the identifier of this node to the given value.         |
 
+
+
+ VariableDeclarationStatementで右辺が存在しないことがコンパイルエラーの原因
+
+ VariableDeclarationStatementの VariableDeclarationFragments内部のoptionalInitializerがnullであるかどうかで判別可能
+
+optionalInitializer == null の場合
+
+- その左辺の情報を取得
+- 左辺に代入している箇所がif内部にあったらそこの反映を消す。
