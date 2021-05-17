@@ -2,8 +2,8 @@
 便利だと思ったExcel関数などの情報を述べていく．
 
 ## 目次
-- [SUMIFS](#SUMIFS)
-- [SWITCH](#SWITCH)
+- [SUMIFS](#sumifs)
+- [SWITCH](#switch)
 
 ## 本編
 ### SUMIFS
