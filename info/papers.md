@@ -1,7 +1,7 @@
 # 読んだ論文
 これまで読んだ論文をまとめる
 
-## [Revisiting Test Cases to Boost Generate-and-Validate Program Repair](https://www.darkrsw.net/papers/ICSME2021.pdf)(ICSME2021)
+## [Revisiting Test Cases to Boost Generate-and-Validate Program Repair](https://www.darkrsw.net/papers/ICSME2021.pdf)(ICSME'21)
 欠陥限局に用いるテストケースそのものに対する洞察を行っていた。
 普段から使ってるDefects4jに格納されたプロジェクトのバグをAPRが修正するにあたって、どんなバグがチャレンジングなのかを統計的にまとめてくれているので研究のモチベーションとしては良かった。
 
